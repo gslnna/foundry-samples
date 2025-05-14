@@ -15,14 +15,15 @@ USAGE:
 
     Before running the sample:
 
-    pip install azure-ai-agents azure-identity jsonref
+    pip install azure-ai-agents azure-identity azure-ai-projects jsonref
 
     Set these environment variables with your own values:
     1) PROJECT_ENDPOINT - The project endpoint in the format
        "https://<your-ai-services-resource-name>.services.ai.azure.com/api/projects/<your-project-name>"
-    2) MODEL - The model deployment name
-    3) CONNECTION_ID - The connection id in the format
-       "{Bearer <your token>}"
+    2) MODEL - The deployment name of the AI model, as found under the "Name" column in
+       the "Models + endpoints" tab in your Azure AI Foundry project.
+    3) Lexis_API_CONNECTION_NAME  - The name of the connection for the LexisNexis API       
+        "Connection will be in the format "/subscriptions//resourceGroups//providers/Microsoft.CognitiveServices/accounts//projects//connections/"
 """
 
 import os
@@ -39,15 +40,23 @@ from azure.identity import DefaultAzureCredential
 # Load environment variables
 endpoint = os.environ["PROJECT_ENDPOINT"]
 model = os.environ["MODEL"]
-connection_id = os.environ["CONNECTION_ID"]
+connection_name = os.environ["Lexis_API_CONNECTION_NAME"]
 
 # Load OpenAPI specification from file
 with open("lexisnexis_api.json", "r") as f:
     openapi_spec = jsonref.loads(f.read())
 
+# Initialize client with default Azure credentials
+project_client = AIProjectClient(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(exclude_interactive_browser_credential=False),
+)
+# Get the connection ID using the connection name
+conn_id = project_client.connections.get(connection_name=connection_name).id
+
 # Set up auth using the connection ID (Connect ID)
 auth = OpenApiConnectionAuthDetails(
-    security_scheme=OpenApiConnectionSecurityScheme(connection_id=connection_id)																					 
+    security_scheme=OpenApiConnectionSecurityScheme(connection_id=conn_id)																					 
 )
 
 # Define OpenAPI tool with spec and auth
@@ -64,13 +73,6 @@ You assist users in legal and compliance tasks by querying LexisNexis Web Servic
 ...
 (Instructions continue as in your original sample)
 """
-
-# Initialize client with default Azure credentials
-project_client = AIProjectClient(
-    endpoint=endpoint,
-    credential=DefaultAzureCredential(exclude_interactive_browser_credential=False),
-)
-
 # Begin agent operations
 with project_client:
     agent = project_client.agents.create_agent(

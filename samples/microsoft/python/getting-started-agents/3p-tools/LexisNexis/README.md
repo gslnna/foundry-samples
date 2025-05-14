@@ -6,7 +6,7 @@ Seamless access to LexisNexis content
 ## Prerequisites
 - Register at www.lexisnexis.com/legalapiportal if you do not have a LexisNexis API account
 - Obtain a Client ID and Secret from LexisNexis technical contact
-- To fetch your Token, you can refer to [the Authentication Step here](https://devportal.api-prod.route53.lexis.com/api?spec=5-MakeYourFirstRequest.yml) for creating the call. Tokens are valid for 24 hours. You can send same request to retrieve another token.
+- To fetch your Token, you can refer to [the Authentication Step here](https://devportal.api-prod.route53.lexis.com/api?spec=MakeYourFirstRequest.yml) for creating the call. Tokens are valid for 24 hours. You can send same request to retrieve another token.
 
 ## Setup
 
@@ -25,13 +25,13 @@ Seamless access to LexisNexis content
 
 ## Use Lexis API Solutions
 
-1. You can follow the [code sample](./Sample.py) to use Lexis API Solutions through Agent SDK.
+1. You can follow the [code sample](./lexisnexis_api.py) to use Lexis API Solutions through Agent SDK.
 1. Before running the sample:
-   1. pip install azure-ai-agents azure-identity python-dotenv jsonref
+   1. pip install azure-ai-agents azure-identity python-dotenv azure-ai-projects jsonref
    1. Set these environment variables with your own values:
-   1. PROJECT_ENDPOINT - the Azure AI Agents connection string.
+   1. PROJECT_ENDPOINT - the Azure AI Foundry project endpoint.
    1. MODEL - The deployment name of the AI model, as found under the "Name" column in the "Models + endpoints" tab in your Azure AI Foundry project.
-   1. LEXIS_API_CONNECTION_NAME - The name of the connection for the Lexis API.
+   1. LEXIS_API_CONNECTION_NAME - The name of the connection for the Lexis API. Format will be    "/subscriptions//resourceGroups//providers/Microsoft.CognitiveServices/accounts//projects//connections/"
 
 
 ## Customer Support Contact

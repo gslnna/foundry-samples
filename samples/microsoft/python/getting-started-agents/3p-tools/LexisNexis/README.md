@@ -17,7 +17,7 @@ Seamless access to LexisNexis content
 3. Select **custom keys** in **other resource types**.
 
 4. Enter the following information to create a connection to store your Lexis API Solutions authorization:
-    1. Set **Custom keys** to "authorization", with the value being "Bearer {JWT token}".
+    1. Set **Custom keys** to "Authorization", with the value being "Bearer {JWT token}".
     2. Make sure **is secret** is checked.
     3. Set the connection name to your connection name. You use this connection name in sample code or Foundry Portal later.
     4. For the **Access** setting, you can choose either *this project only* or *shared to all projects*. Just make sure in your code, the connection string of the project you entered has access to this connection.

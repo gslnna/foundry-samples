@@ -52,7 +52,7 @@ project_client = AIProjectClient(
     credential=DefaultAzureCredential(exclude_interactive_browser_credential=False),
 )
 # Get the connection ID using the connection name
-conn_id = project_client.connections.get(connection_name=connection_name).id
+conn_id = project_client.connections.get(name=connection_name).id
 
 # Set up auth using the connection ID (Connect ID)
 auth = OpenApiConnectionAuthDetails(

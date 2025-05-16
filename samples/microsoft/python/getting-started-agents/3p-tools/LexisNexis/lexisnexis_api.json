@@ -6,7 +6,7 @@
       "name": "LexisNexis all rights reserved. It is published for informational use only and is subject to change."
     },
     "version": "",
-    "description": "Content API for accessing Cases"
+    "description": "Content API for accessing Lexis Nexis data. This API provides access to LexisNexis data and services, including cases, dockets, and other legal information. The API allows users to search for and retrieve legal documents, as well as access metadata and other related information. The API is designed for developers and legal professionals who need programmatic access to LexisNexis data."
   },
   "servers": [
     {
@@ -21,6 +21,9 @@
   "paths": {
     "/Cases": {
       "get": {
+        "operationId": "getCases",
+        "summary": "Retrieve Cases",
+        "description": "Get documents cases based on the provided query parameters such as `$search`, `$filter`, `$orderby`, etc.",
         "tags": [
           "API"
         ],
@@ -188,6 +191,9 @@
     },
     "/Dockets": {
       "get": {
+        "operationId": "getDockets",
+        "summary": "Retrieve Dockets",
+        "description": "Get documents of dockets based on the provided query parameters such as `$search`, `$filter`, `$orderby`, etc.",
         "tags": [
           "API"
         ],

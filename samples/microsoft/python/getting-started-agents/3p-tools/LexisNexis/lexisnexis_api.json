@@ -41,8 +41,8 @@
           {
             "name": "$expand",
             "in": "query",
-            "allowReserved": true,
             "explode": false,
+            "style": "form",
             "description": "A navigation property name which will be included with the current result set.",
             "schema": {
               "type": "array",
@@ -56,6 +56,34 @@
                   "AppliedPostFilter"
                 ]
               }
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "explode": false,
+            "style": "form",
+            "description": "The Cases resource can be sorted by any of the listed properties, in accordance with the standard sorting behavior. By default, results will be sorted by relevance in the absence of the $orderby query string parameter.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Jurisdiction desc",
+                "Jurisdiction asc",
+                "Court desc",
+                "Court asc",
+                "Attorney desc",
+                "Attorney asc",
+                "LawFirm desc",
+                "LawFirm asc",
+                "Judge desc",
+                "Judge asc",
+                "PublicationStatus desc",
+                "PublicationStatus asc",
+                "Date desc",
+                "Date asc",
+                "Title desc",
+                "Title asc"
+              ]
             }
           },
           {
@@ -84,43 +112,39 @@
           {
             "name": "$select",
             "in": "query",
-            "allowReserved": true,
-            "explode": false,
-            "description": "Select specific fields from the response using the $select option. Select more than one field by providing fields as comma separated values (n,n,....). $expand=postFilters and $OrderBy are not supported for Cases when the $select=ResultId option is used",
+            "description": "Select specific fields as a comma-separated string. Valid values include:",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "Jurisdiction",
-                  "Court",
-                  "Attorney",
-                  "LawFirm",
-                  "Judge",
-                  "PublicationStatus",
-                  "MostCited",
-                  "LNGI",
-                  "LoadDate",
-                  "LastUpdateDate",
-                  "Document",
-                  "ResultId",
-                  "SearchType",
-                  "Source",
-                  "Topic",
-                  "PracticeArea",
-                  "Date",
-                  "Keyword",
-                  "PostFilters",
-                  "AppliedPostFilter",
-                  "Title",
-                  "DocumentContent",
-                  "Overview",
-                  "Extracts",
-                  "IsCitationMatch",
-                  "SourcePath"
-                ]
-              }
-            }
+              "type": "string",
+              "enum": [
+                "Jurisdiction",
+                "Court",
+                "Attorney",
+                "LawFirm",
+                "Judge",
+                "PublicationStatus",
+                "MostCited",
+                "LNGI",
+                "LoadDate",
+                "LastUpdateDate",
+                "Document",
+                "ResultId",
+                "SearchType",
+                "Source",
+                "Topic",
+                "PracticeArea",
+                "Date",
+                "Keyword",
+                "PostFilters",
+                "AppliedPostFilter",
+                "Title",
+                "DocumentContent",
+                "Overview",
+                "Extracts",
+                "IsCitationMatch",
+                "SourcePath"
+              ]
+            },
+            "example": "Title,Date,Source"
           }
         ],
         "responses": {
@@ -169,8 +193,8 @@
           {
             "name": "$expand",
             "in": "query",
-            "allowReserved": true,
             "explode": false,
+            "style": "form",
             "description": "A navigation property name which will be included with the current result set.",
             "schema": {
               "type": "array",
@@ -190,23 +214,19 @@
           {
             "name": "$orderby",
             "in": "query",
-            "allowReserved": true,
             "explode": false,
-            "description": "The Dockets resource can be sorted by any of the listed properties, in accordance with the standard sorting behavior. By default, results will be sorted by relevance in the absence of the $orderby query string parameter.",
+            "style": "form",
+            "description": "The Dockets resource can be sorted by any of the listed properties. By default, results will be sorted by relevance in the absence of the $orderby query string parameter.",
             "schema": {
-              "type": "array",
-              "maxItems": 1,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "Court desc",
-                  "Court asc",
-                  "Date desc",
-                  "Date asc",
-                  "Title desc",
-                  "Title asc"
-                ]
-              }
+              "type": "string",
+              "enum": [
+                "Court desc",
+                "Court asc",
+                "Date desc",
+                "Date asc",
+                "Title desc",
+                "Title asc"
+              ]
             }
           },
           {
@@ -232,78 +252,42 @@
               "maximum": 50
             }
           },
-          {
+            {
             "name": "$select",
             "in": "query",
-            "allowReserved": true,
-            "explode": false,
-            "description": "Select specific fields from the response using the $select option. Select more than one field by providing fields as comma separated values (n,n,....). $expand=postFilters and $OrderBy are not supported for Dockets when the $select=ResultId option is used",
+            "description": "Select specific fields as a comma-separated string. Valid values include:",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DocketNumber",
-                  "ContentType",
-                  "Court",
-                  "CourtFederal",
-                  "CourtState",
-                  "CourtId",
-                  "CourtLinkCourt",
-                  "AttorneyPlaintiff",
-                  "AttorneyDefendant",
-                  "AttorneyOther",
-                  "LawFirmPlaintiff",
-                  "LawFirmDefendant",
-                  "LawFirmOther",
-                  "Judge",
-                  "LitigantPlaintiff",
-                  "LitigantDefendant",
-                  "LitigantOther",
-                  "CaseStatus",
-                  "CourtLinkCaseStatus",
-                  "DocketChapter",
-                  "ClassAction",
-                  "NaturesOfSuit",
-                  "NosCode",
-                  "Cause",
-                  "Participants",
-                  "Debtors",
-                  "Charges",
-                  "CaseType",
-                  "CourtLinkCaseType",
-                  "CourtLinkCaseTypeCode",
-                  "LitigationArea",
-                  "JudgmentData",
-                  "Publisher",
-                  "MeetingSchedule341",
-                  "DocumentParts",
-                  "Document",
-                  "Trustees",
-                  "AttorneyAddress",
-                  "Assets",
-                  "PlaintiffDefendants",
-                  "LNGI",
-                  "LastUpdateDate",
-                  "AISummary",
-                  "ResultId",
-                  "SearchType",
-                  "Source",
-                  "Topic",
-                  "PracticeArea",
-                  "Date",
-                  "Keyword",
-                  "PostFilters",
-                  "AppliedPostFilter",
-                  "Title",
-                  "DocumentContent",
-                  "Overview",
-                  "Extracts",
-                  "IsCitationMatch",
-                  "SourcePath"
-                ]
-              }
-            }
+              "type": "string",
+              "enum": [
+                "Jurisdiction",
+                "Court",
+                "Attorney",
+                "LawFirm",
+                "Judge",
+                "PublicationStatus",
+                "MostCited",
+                "LNGI",
+                "LoadDate",
+                "LastUpdateDate",
+                "Document",
+                "ResultId",
+                "SearchType",
+                "Source",
+                "Topic",
+                "PracticeArea",
+                "Date",
+                "Keyword",
+                "PostFilters",
+                "AppliedPostFilter",
+                "Title",
+                "DocumentContent",
+                "Overview",
+                "Extracts",
+                "IsCitationMatch",
+                "SourcePath"
+              ]
+            },
+            "example": "Title,Date,Source"
           }
         ],
         "responses": {
@@ -1219,7 +1203,7 @@
           "Geography": {
             "type": "string",
             "nullable": true,
-            "description": "Region of the Source. Property will be used to filter the Source Content by Geography.",
+            "description": "Region of the Source. Use $expand=Filters to get the list of available Geographies for the user.",
             "format": "string"
           },
           "Name": {

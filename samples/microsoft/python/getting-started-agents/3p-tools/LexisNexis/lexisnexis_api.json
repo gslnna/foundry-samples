@@ -23,7 +23,7 @@
       "get": {
         "operationId": "getCases",
         "summary": "Retrieve Cases",
-        "description": "Get documents cases based on the provided query parameters such as `$search`, `$filter`, `$orderby`, etc.",
+        "description": "Get documents cases based on the provided query parameters such as `$search`, `$orderby`, etc.",
         "tags": [
           "API"
         ],
@@ -33,7 +33,7 @@
             "in": "query",
             "required": true,
             "allowReserved": true,
-            "description": "The Cases resource can be searched using the $search query string parameter. This free-text search expression can be used in conjunction with a $filter predicate.</br> </br>Additionally, it is possible to use the following segments to construct your search&colon; attorney, cite, concur, concurby, core-terms, court, disposition, dissent, dissentby, headnotes, history, judges, ln-summary, load-date, name, number, opinion, opinionby, outcome, overview, summary, writtenby, jurisinfo, courtcode, nohnsummary, ml-load-date, lngi",
+            "description": "The Cases resource can be searched using the $search query string parameter.</br> </br>Additionally, it is possible to use the following segments to construct your search&colon; attorney, cite, concur, concurby, core-terms, court, disposition, dissent, dissentby, headnotes, history, judges, ln-summary, load-date, name, number, opinion, opinionby, outcome, overview, summary, writtenby, jurisinfo, courtcode, nohnsummary, ml-load-date, lngi",
             "schema": {
               "type": "string"
             }
@@ -54,48 +54,6 @@
                   "Source",
                   "PostFilters",
                   "AppliedPostFilter"
-                ]
-              }
-            }
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "allowReserved": true,
-            "explode": false,
-            "description": "The Cases resource can be searched using filters on any of the listed properties, in accordance with the standard filtering behavior.\n  * `Jurisdiction` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `Court` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `Attorney` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `LawFirm` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `Judge` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `PublicationStatus` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `MostCited` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `SearchType` - Equality comparison (`eq`) \n  * `Source/Id` - Equality comparison (`eq`), with multiple values supported via `or` expressions.. \n  * `Source/Name` - Equality comparison (`eq`), with multiple values supported via `or` expressions.. \n  * `Topic/Id` - Equality comparison (`eq`), with multiple values supported via `or` expressions.. \n  * `PracticeArea/Id` - Equality comparison (`eq`), with multiple values supported via `or` expressions.. \n  * `PracticeArea/Name` - Equality comparison (`eq`), with multiple values supported via `or` expressions.. \n  * `Date` - Range comparison (`gt`, `ge`, `lt`, `le`) \n  * `Keyword` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "$orderby",
-            "in": "query",
-            "allowReserved": true,
-            "explode": false,
-            "description": "The Cases resource can be sorted by any of the listed properties, in accordance with the standard sorting behavior. By default, results will be sorted by relevance in the absence of the $orderby query string parameter.",
-            "schema": {
-              "type": "array",
-              "maxItems": 1,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "Jurisdiction desc",
-                  "Jurisdiction asc",
-                  "Court desc",
-                  "Court asc",
-                  "Attorney desc",
-                  "Attorney asc",
-                  "LawFirm desc",
-                  "LawFirm asc",
-                  "Judge desc",
-                  "Judge asc",
-                  "PublicationStatus desc",
-                  "PublicationStatus asc",
-                  "Date desc",
-                  "Date asc",
-                  "Title desc",
-                  "Title asc"
                 ]
               }
             }
@@ -193,7 +151,7 @@
       "get": {
         "operationId": "getDockets",
         "summary": "Retrieve Dockets",
-        "description": "Get documents of dockets based on the provided query parameters such as `$search`, `$filter`, `$orderby`, etc.",
+        "description": "Get documents of dockets based on the provided query parameters such as `$search`, `$orderby`, etc.",
         "tags": [
           "API"
         ],
@@ -203,7 +161,7 @@
             "in": "query",
             "required": true,
             "allowReserved": true,
-            "description": "The Dockets resource can be searched using the $search query string parameter. This free-text search expression can be used in conjunction with a $filter predicate.</br> </br>Additionally, it is possible to use the following segments to construct your search&colon; attorney, court, firm, judges, name, number, datefiled, litigant-clean-name, attorney-clean-name, lawfirm-clean-name, proceeding-section-keyword-search, nature-of-suit, statute, cause, courtkey, charges, patent-number, patent-class, patent-sub-class, class-action, chapter, disposition, load-date, jurisinfo, plaintiff-litigant-clean-name, defendant-litigant-clean-name, others-litigant-clean-name, plaintiff-attorney-clean-name, defendant-attorney-clean-name, others-attorney-clean-name, plaintiff-lawfirm-clean-name, defendant-lawfirm-clean-name, others-lawfirm-clean-name, judge-clean-name, plaintiff-litigant, defendant-litigant, others-litigant, plaintiff-attorney, defendant-attorney, others-attorney, plaintiff-lawfirm, defendant-lawfirm, others-lawfirm, trustee, ssn, ein, itin, ml-load-date, lngi",
+            "description": "The Dockets resource can be searched using the $search query string parameter.</br> </br>Additionally, it is possible to use the following segments to construct your search&colon; attorney, court, firm, judges, name, number, datefiled, litigant-clean-name, attorney-clean-name, lawfirm-clean-name, proceeding-section-keyword-search, nature-of-suit, statute, cause, courtkey, charges, patent-number, patent-class, patent-sub-class, class-action, chapter, disposition, load-date, jurisinfo, plaintiff-litigant-clean-name, defendant-litigant-clean-name, others-litigant-clean-name, plaintiff-attorney-clean-name, defendant-attorney-clean-name, others-attorney-clean-name, plaintiff-lawfirm-clean-name, defendant-lawfirm-clean-name, others-lawfirm-clean-name, judge-clean-name, plaintiff-litigant, defendant-litigant, others-litigant, plaintiff-attorney, defendant-attorney, others-attorney, plaintiff-lawfirm, defendant-lawfirm, others-lawfirm, trustee, ssn, ein, itin, ml-load-date, lngi",
             "schema": {
               "type": "string"
             }
@@ -227,16 +185,6 @@
                   "AppliedPostFilter"
                 ]
               }
-            }
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "allowReserved": true,
-            "explode": false,
-            "description": "The Dockets resource can be searched using filters on any of the listed properties, in accordance with the standard filtering behavior.\n  * `Court` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `CourtFederal` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `CourtState` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `CourtLinkCourt` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `AttorneyPlaintiff` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `AttorneyDefendant` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `AttorneyOther` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `LawFirmPlaintiff` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `LawFirmDefendant` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `LawFirmOther` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `Judge` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `LitigantPlaintiff` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `LitigantDefendant` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `LitigantOther` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `CaseStatus` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `CourtLinkCaseStatus` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `DocketChapter` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `ClassAction` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `NosCode` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `Cause` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `CaseType` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `CourtLinkCaseType` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `CourtLinkCaseTypeCode` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `LitigationArea` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `JudgmentData` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `Publisher` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `MeetingSchedule341` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `Assets` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n  * `SearchType` - Equality comparison (`eq`) \n  * `Source/Id` - Equality comparison (`eq`), with multiple values supported via `or` expressions.. \n  * `Source/Name` - Equality comparison (`eq`), with multiple values supported via `or` expressions.. \n  * `Topic/Id` - Equality comparison (`eq`), with multiple values supported via `or` expressions.. \n  * `PracticeArea/Id` - Equality comparison (`eq`), with multiple values supported via `or` expressions.. \n  * `PracticeArea/Name` - Equality comparison (`eq`), with multiple values supported via `or` expressions.. \n  * `Date` - Range comparison (`gt`, `ge`, `lt`, `le`) \n  * `Keyword` - Equality comparison (`eq`), with multiple values supported via `or` expressions. \n",
-            "schema": {
-              "type": "string"
             }
           },
           {
@@ -1250,7 +1198,7 @@
       },
       "SearchType": {
         "type": "string",
-        "description": "The search method which is used to execute the query.  If none is specified in the $filter expression, `DynamicAnd` will be used.\n  * `DynamicAnd` - Dynamic searches will analyze the search terms for its format.  Search terms will only be matched as a group, so a search for \"house boat\" will not include results which only contain \"house\" or \"boat\". \n\n  * `DynamicOr` - Dynamic searches will analyze the search terms for its format.  Search terms will be used both individually and as a group, so a search for \"house boat\" will also include results which only contain \"house\" or \"boat\". \n\n  * `NaturalLanguageOr` - Executes a search using a natural language parser.  Search terms will be used both individually and as a group. \n\n  * `NaturalLanguageAnd` - Executes a search using a natural language parser.  Search terms will be used only as a group. \n\n  * `Boolean` - Executes a search using a boolean parser. \n",
+        "description": "The search method which is used to execute the query.\n  * `DynamicAnd` - Dynamic searches will analyze the search terms for its format.  Search terms will only be matched as a group, so a search for \"house boat\" will not include results which only contain \"house\" or \"boat\". \n\n  * `DynamicOr` - Dynamic searches will analyze the search terms for its format.  Search terms will be used both individually and as a group, so a search for \"house boat\" will also include results which only contain \"house\" or \"boat\". \n\n  * `NaturalLanguageOr` - Executes a search using a natural language parser.  Search terms will be used both individually and as a group. \n\n  * `NaturalLanguageAnd` - Executes a search using a natural language parser.  Search terms will be used only as a group. \n\n  * `Boolean` - Executes a search using a boolean parser. \n",
         "enum": [
           "DynamicAnd",
           "DynamicOr",
@@ -1271,7 +1219,7 @@
           "Geography": {
             "type": "string",
             "nullable": true,
-            "description": "Region of the Source. Property will be used to filter the Source Content by Geography. Filter can be applied by either using the text or Id eg:($filter= Geography eq 'US' or Geography eq 'dXJuOnBjdDo0MzY'). Use $expand=Filters to get the list of available Geographies for the user.",
+            "description": "Region of the Source. Property will be used to filter the Source Content by Geography.",
             "format": "string"
           },
           "Name": {

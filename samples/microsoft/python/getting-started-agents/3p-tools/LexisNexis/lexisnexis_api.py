@@ -23,7 +23,7 @@ USAGE:
     2) MODEL - The deployment name of the AI model, as found under the "Name" column in
        the "Models + endpoints" tab in your Azure AI Foundry project.
     3) Lexis_API_CONNECTION_NAME  - The name of the connection for the LexisNexis API       
-        "Connection will be in the format "/subscriptions//resourceGroups//providers/Microsoft.CognitiveServices/accounts//projects//connections/"
+        # connection id should be in the format "/subscriptions/<sub-id>/resourceGroups/<your-rg-name>/providers/Microsoft.CognitiveServices/accounts/<your-ai-services-name>/projects/<your-project-name>/connections/<your-connection-name>"
 """
 
 import os
